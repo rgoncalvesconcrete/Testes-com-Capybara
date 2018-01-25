@@ -7,7 +7,7 @@ describe "Visitando o site Bazar da Samy", js: true, type: :feature do
         visit 'https://bazar-da-samy.lojaintegrada.com.br/'
 
         #Pesquisando o campo pelo xpath devido ao motivo de possuir um ou mais campos com o mesmo nome e insiro através do .set o valor no campo.
-        find(:xpath, '/html/body/div[4]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div/div[1]/input').set('aaaaa@com.br')
+        find(:xpath, '/html/body/div[4]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div/div[1]/input').set('abab@com.br')
         #Pesquisando o botão pelo xpath devido ao motivo de possuir um ou mais botoões com o mesmo nome e em seguida o comando click
         find(:xpath, '/html/body/div[4]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div/div[1]/button').click
         #Espero que a pagina possua o texto informado.
@@ -23,7 +23,7 @@ describe "Visitando o site Bazar da Samy", js: true, type: :feature do
         visit 'https://bazar-da-samy.lojaintegrada.com.br/'
 
         #Pesquisando o campo pelo xpath devido ao motivo de possuir um ou mais campos com o mesmo nome e insiro através do .set o valor no campo.
-        find(:xpath, '/html/body/div[4]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div/div[1]/input').set('aaaaab@com.br')
+        find(:xpath, '/html/body/div[4]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div/div[1]/input').set('abab@com.br')
         #Pesquisando o botão pelo xpath devido ao motivo de possuir um ou mais botoões com o mesmo nome e em seguida o comando click
         find(:xpath, '/html/body/div[4]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div/div[1]/button').click
         #Espero que a pagina possua o texto informado.
@@ -38,12 +38,13 @@ describe "Visitando o site Bazar da Samy", js: true, type: :feature do
         
         visit 'https://bazar-da-samy.lojaintegrada.com.br/'
         #Pesquisando o campo pelo xpath devido ao motivo de possuir um ou mais campos com o mesmo nome e insiro através do .set o valor no campo.
-        find(:xpath, '/html/body/div[4]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div/div[1]/input').set('aaaaacom.br')
+        find(:xpath, '/html/body/div[4]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div/div[1]/input').set('ababcom.br')
         #Pesquisando o botão pelo xpath devido ao motivo de possuir um ou mais botoões com o mesmo nome e em seguida o comando click
         find(:xpath, '/html/body/div[4]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div/div[1]/button').click
-        #Espero que a pagina possua o texto informado e que exista a DIV de erro.
-        expect(page).to have_selector(:xpath, '/html/body/div[4]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div/div[1]')
-        expect(page).to have_content 'Receba nossas ofertas por e-mail'
+        #Espero que a pagina nao possua os textos informado.
+        expect(page).to have_no_content 'Obrigado por se inscrever! Aguarde novidades da nossa loja em breve.'
+        expect(page).to have_no_content 'Obrigado por se inscrever! Aguarde novidades da nossa loja em breve.'
+
         sleep 2
     end
 end
